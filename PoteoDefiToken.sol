@@ -238,7 +238,7 @@ contract ProteoDefi is Ownable, IBEP20 {
      */
     constructor () {
         _name = "Proteo Defi";
-        _symbol = "PRDF";
+        _symbol = "PROD";
         _decimals = 6;
         _mint(_msgSender(), 3000000e6);
     }
