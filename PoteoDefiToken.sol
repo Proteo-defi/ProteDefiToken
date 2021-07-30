@@ -227,15 +227,6 @@ contract ProteoDefi is Ownable, IBEP20 {
     string private _symbol;
     uint8 private _decimals;
 
-    /**
-     * @dev Sets the values for {name} and {symbol}, initializes {decimals} with
-     * a default value of 18.
-     *
-     * To select a different value for {decimals}, use {_setupDecimals}.
-     *
-     * All three of these values are immutable: they can only be set once during
-     * construction.
-     */
     constructor () {
         _name = "Proteo Defi";
         _symbol = "PROD";
@@ -243,41 +234,22 @@ contract ProteoDefi is Ownable, IBEP20 {
         _mint(_msgSender(), 3000000e6);
     }
 
-    /**
-     * @dev Returns the name of the token.
-     */
+ 
     function name() public view override returns (string memory) {
         return _name;
     }
 
-    /**
-     * @dev Returns the symbol of the token, usually a shorter version of the
-     * name.
-     */
+
     function symbol() public view override returns (string memory) {
         return _symbol;
     }
 
-    /**
-     * @dev Returns the number of decimals used to get its user representation.
-     * For example, if `decimals` equals `2`, a balance of `505` tokens should
-     * be displayed to a user as `5,05` (`505 / 10 ** 2`).
-     *
-     * Tokens usually opt for a value of 18, imitating the relationship between
-     * Ether and Wei. This is the value {BEP20} uses, unless {_setupDecimals} is
-     * called.
-     *
-     * NOTE: This information is only used for _display_ purposes: it in
-     * no way affects any of the arithmetic of the contract, including
-     * {IBEP20-balanceOf} and {IBEP20-transfer}.
-     */
+
     function decimals() public view override returns (uint8) {
         return _decimals;
     }
 
-    /**
-     * @dev See {IBEP20-totalSupply}.
-     */
+ 
     function totalSupply() public view override returns (uint256) {
         return _totalSupply;
     }
@@ -451,14 +423,11 @@ contract ProteoDefi is Ownable, IBEP20 {
      
     /**function _burn(address account, uint256 amount) internal virtual {
         require(account != address(0), "BEP20: burn from the zero address");
-
         _beforeTokenTransfer(account, address(0), amount);
-
         uint256 accountBalance = _balances[account];
         require(accountBalance >= amount, "BEP20: burn amount exceeds balance");
         _balances[account] = accountBalance - amount;
         _totalSupply -= amount;
-
         emit Transfer(account, address(0), amount);
     }**/
 
@@ -490,8 +459,8 @@ contract ProteoDefi is Ownable, IBEP20 {
      * applications that interact with token contracts will not expect
      * {decimals} to ever change, and may work incorrectly if it does.
      */
-    function _setupDecimals(uint8 decimals_) internal {
-        _decimals = decimals_;
+    function setupDecimals(uint8 decimals) internal {
+        decimals = decimals;
     }
 
     /**
